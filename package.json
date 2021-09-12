@@ -1,0 +1,28 @@
+{
+  "name": "kksi2021-datascience",
+  "version": "1.0.0",
+  "description": "This project will save all resources for kksi datascience 2021",
+  "main": "app.js",
+  "author": "ardhptr21 <ardhiputrapradana21@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "v14.17.3"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx -i ./src/css/tailwind.css -o ./public/css/styles.css",
+    "build": "NODE_ENV=production npx -i ./src/css/tailwind.css -o ./public/css/styles.css"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^6.0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "dotenv": "^10.0.0",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.15"
+  }
+}
