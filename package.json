@@ -8,9 +8,13 @@
   "engines": {
     "node": "v14.17.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ardhptr21/kksi2021-datascience.git"
+  },
   "scripts": {
     "start": "node app.js",
-    "dev": "npx -i ./src/css/tailwind.css -o ./public/css/styles.css",
+    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/styles.css",
     "build": "NODE_ENV=production npx -i ./src/css/tailwind.css -o ./public/css/styles.css"
   },
   "dependencies": {

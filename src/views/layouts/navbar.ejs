@@ -1,0 +1,40 @@
+<nav id="header" class="fixed bg-white text-black w-full z-20 top-0 shadow-sm">
+  <div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+    <div class="block lg:hidden pl-8 p-2">
+      <a class="bg-blue-100 py-2 px-4 rounded-2xl hover:bg-blue-200" href="#"> Admin </a>
+    </div>
+    <div class="block lg:hidden pr-4">
+      <button id="nav-toggle" class="flex items-center px-3 py-2 text-black border-gray-600 focus:outline-none">
+        <svg fill="text-yellow-300" viewBox="0 0 20 20" class="w-6 h-6 fill-current">
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div class="w-full flex-grow p-4 lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white md:bg-transparent z-20" id="nav-content">
+      <ul class="list-reset lg:flex justify-center flex-1 items-center">
+        <li class="mr-3">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="mr-3">
+          <a class="nav-link" href="/video">Video</a>
+        </li>
+        <li class="mr-3">
+          <a class="nav-link" href="/file">File</a>
+        </li>
+        <li class="mr-3">
+          <a class="bg-blue-100 rounded-2xl py-2 px-4 hidden lg:inline-block hover:bg-blue-200" href="/admin">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById("nav-toggle").onclick = function () {
+    document.getElementById("nav-content").classList.toggle("hidden");
+  };
+</script>

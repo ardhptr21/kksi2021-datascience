@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+  @apply inline-block hover:underline py-2 px-4;
+}
+
+.btn {
+  @apply border-2 border-black text-black block rounded-sm font-bold md:py-4 md:px-6 py-2 px-6 mr-2 items-center hover:bg-gray-900 hover:text-blue-500 transition ease-in-out duration-300 uppercase;
+}
+
+.card {
+  @apply xl:w-1/3 md:w-1/2 p-4;
+}
+.card .card-content {
+  @apply border border-gray-300 p-6 rounded-lg;
+}
+.card .card-title {
+  @apply text-3xl font-bold mb-2;
+}
+.card .card-text {
+  @apply leading-relaxed text-base my-10;
+}
