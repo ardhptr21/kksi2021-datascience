@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/styles.css",
-    "build": "NODE_ENV=production npx -i ./src/css/tailwind.css -o ./public/css/styles.css"
+    "build": "NODE_ENV=production npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/styles.css"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
