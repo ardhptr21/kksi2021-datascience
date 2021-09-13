@@ -1,3 +1,6 @@
 module.exports.index = (req, res) => {
-  res.render("pages/video");
+  res.render("video/index");
+};
+module.exports.form = (req, res) => {
+  res.render("video/form");
 };

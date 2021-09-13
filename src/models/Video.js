@@ -4,7 +4,6 @@ const videoSchema = new mongoose.Schema(
     url: String,
     title: String,
     desription: String,
-    date: Date,
   },
   {
     timestamps: {

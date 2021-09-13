@@ -1,7 +1,10 @@
 <div class="flex items-center flex-col justify-center min-h-screen">
-  <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+  <div class="flex flex-wrap w-full mb-5 flex-col items-center text-center">
     <h1 class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">KELOLA FILE</h1>
-    <a href="/admin" class="text-blue-500">&laquo; Back &raquo;</a>
+    <div class="mt-10">
+      <a href="/admin" class="shadow bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">BACK</a>
+      <a href="/file/form" class="shadow bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">CREATE NEW</a>
+    </div>
   </div>
   <div class="col-span-12">
     <div class="overflow-auto w-screen">
@@ -11,13 +14,12 @@
             <th class="p-3 text-left">Title</th>
             <th class="p-3 text-left">Description</th>
             <th class="p-3 text-left">Url</th>
-            <th class="p-3 text-left">Date</th>
             <th class="p-3 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr class="bg-gray-800 hover:bg-gray-900">
-            <td class="p-3">Pertemuan 1</td>
+            <td class="p-3">File 1</td>
             <td class="p-3 max-w-prose">
               <p class="truncate">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, quam. Ab, ipsam alias doloribus quo provident veritatis possimus
@@ -25,7 +27,6 @@
               </p>
             </td>
             <td class="p-3"><a href="#" class="text-blue-400 underline">https://google.com</a></td>
-            <td class="p-3">2 September 2021</td>
             <td class="p-3">
               <a href="#" class="text-gray-400 hover:text-yellow-300 mx-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
