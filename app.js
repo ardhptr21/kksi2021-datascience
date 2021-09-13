@@ -11,6 +11,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
+const passport = require("passport");
 
 const routes = require("./src/routes");
 
@@ -36,9 +37,12 @@ app.use(
 app.use(cookieParser(process.env.SECRET_SESSION));
 app.use(flash());
 app.use(methodOverride("_method"));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // CALL ALL CONFIGS
 require("./src/configs/mongoose.config");
+require("./src/configs/passport.config");
 
 // ROUTES
 app.use("/", routes.pages);
