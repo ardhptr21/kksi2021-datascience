@@ -3,7 +3,7 @@
     <h1 class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">KELOLA FILE</h1>
     <div class="mt-10">
       <a href="/admin" class="shadow bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">BACK</a>
-      <a href="/file/form" class="shadow bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">CREATE NEW</a>
+      <a href="/file/create" class="shadow bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">CREATE NEW</a>
     </div>
   </div>
   <div class="col-span-12">
@@ -14,6 +14,7 @@
         <% } else if(messages.error) { %>
           <%- include("../components/alerts/error.ejs", {message: messages.error}) %>
         <% } %> 
+        <% if (files.length) { %>
         <thead class="bg-gray-800 text-gray-500">
           <tr>
             <th class="p-3 text-left">Title</th>
@@ -23,17 +24,15 @@
           </tr>
         </thead>
         <tbody>
+          <% files.forEach(file => { %>
           <tr class="bg-gray-800 hover:bg-gray-900">
-            <td class="p-3">File 1</td>
+            <td class="p-3"><%= file.title %></td>
             <td class="p-3 max-w-prose">
-              <p class="truncate">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, quam. Ab, ipsam alias doloribus quo provident veritatis possimus
-                incidunt inventore quidem reiciendis necessitatibus, sunt praesentium! Reiciendis itaque quis repudiandae placeat.
-              </p>
+              <p class="truncate"><%= file.description %></p>
             </td>
-            <td class="p-3"><a href="#" class="text-blue-400 underline">https://google.com</a></td>
+            <td class="p-3"><a href="<%= file.url %>" class="text-blue-400 underline"><%= file.url %></a></td>
             <td class="p-3">
-              <a href="#" class="text-gray-400 hover:text-yellow-300 mx-2">
+              <a href="/file/update/<%= file.id %>" class="text-gray-400 hover:text-yellow-300 mx-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     stroke-linecap="round"
@@ -43,7 +42,7 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-red-300 ml-2">
+              <a href="/file/delete/<%= file.id %>" class="text-gray-400 hover:text-red-300 ml-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     stroke-linecap="round"
@@ -55,7 +54,11 @@
               </a>
             </td>
           </tr>
+          <% }) %>
         </tbody>
+        <% } else { %>
+          <%- include("../components/alerts/info.ejs", {message: "Tidak ada data untuk saat ini, silahkan buat data file baru"}) %> 
+        <% } %> 
       </table>
     </div>
   </div>

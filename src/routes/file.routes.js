@@ -3,7 +3,8 @@ const router = express.Router();
 const fileController = require("../controllers/fileController");
 
 router.get("/", fileController.index);
-router.get("/form", fileController.form);
+router.get("/create", fileController.create);
 router.post("/store", fileController.store);
+router.route("/update/:id").get(fileController.edit).put(fileController.update);
 
 module.exports = router;

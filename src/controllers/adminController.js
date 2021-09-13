@@ -1,9 +1,24 @@
+const File = require("../models/File");
+const Video = require("../models/Video");
+
 module.exports.index = (req, res) => {
   res.render("admin/index");
 };
+
 module.exports.video = (req, res) => {
-  res.render("admin/video");
+  Video.find((err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.render("admin/video", { videos: result });
+  });
 };
+
 module.exports.file = (req, res) => {
-  res.render("admin/file");
+  File.find((err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.render("admin/file", { files: result });
+  });
 };

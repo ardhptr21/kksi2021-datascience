@@ -10,6 +10,7 @@ const path = require("path");
 const flash = require("express-flash");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const methodOverride = require("method-override");
 
 const routes = require("./src/routes");
 
@@ -34,6 +35,7 @@ app.use(
 );
 app.use(cookieParser(process.env.SECRET_SESSION));
 app.use(flash());
+app.use(methodOverride("_method"));
 
 // CALL ALL CONFIGS
 require("./src/configs/mongoose.config");
