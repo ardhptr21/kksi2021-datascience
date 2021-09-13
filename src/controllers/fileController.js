@@ -64,3 +64,15 @@ module.exports.update = (req, res) => {
     }
   );
 };
+
+module.exports.remove = (req, res) => {
+  File.findByIdAndRemove(req.params.id, (err) => {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Failed delete file url");
+    } else {
+      req.flash("success", "Successfully delete file url");
+    }
+    res.redirect("/admin/file");
+  });
+};

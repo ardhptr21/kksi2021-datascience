@@ -65,3 +65,15 @@ module.exports.update = (req, res) => {
     }
   );
 };
+
+module.exports.remove = (req, res) => {
+  Video.findByIdAndRemove(req.params.id, (err) => {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Failed delete video url");
+    } else {
+      req.flash("success", "Successfully delete video url");
+    }
+    res.redirect("/admin/video");
+  });
+};
