@@ -1,0 +1,23 @@
+<div class="w-screen h-screen flex justify-center items-center bg-gray-100">
+  <form method="POST" action="/auth/login" class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md" autocomplete="off">
+    <h1 class="mb-5 text-3xl uppercase text-gray-600">Login</h1>
+    <input
+      type="username"
+      name="username"
+      class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"
+      placeholder="Username"
+      required
+    />
+    <input
+      type="password"
+      name="password"
+      class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"
+      placeholder="Password"
+      required
+    />
+    <% if (messages.error) { %>
+    <p class="text-red-400 w-full mb-5">*<%= messages.error %></p>
+    <% } %>
+    <button class="bg-purple-600 hover:bg-purple-900 text-white font-bold p-2 rounded w-80 uppercase" type="submit">Login</button>
+  </form>
+</div>

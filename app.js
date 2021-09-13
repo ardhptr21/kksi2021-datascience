@@ -49,6 +49,7 @@ app.use("/", routes.pages);
 app.use("/video", routes.video);
 app.use("/file", routes.file);
 app.use("/admin", routes.admin);
+app.use("/auth", routes.auth);
 
 // LISTENING PORT
 app.listen(PORT, () => console.log(`Server run on port ${PORT}`));

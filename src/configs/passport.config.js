@@ -20,13 +20,13 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
   User.findOne({ id }, (err, user) => {
     if (err) return done(err);
 
-    return done(null, user.id);
+    return done(null, user);
   });
 });

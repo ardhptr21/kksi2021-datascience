@@ -4,8 +4,8 @@ const userSchema = new mongoose.Schema(
     username: String,
     password: String,
     role: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "admin",
     },
   },
   {
