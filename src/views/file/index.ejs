@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="flex flex-wrap -m-4">
-      <% if (locals.files) { %>
+      <% if (files.length) { %>
         <% files.forEach(file => { %>
           <%- include("../components/card.ejs", {data: file}) %> 
         <% }) %>

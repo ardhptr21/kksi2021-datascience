@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="flex flex-wrap -m-4">
-      <% if (locals.videos) { %>
+      <% if (videos.length) { %>
         <% videos.forEach(video => { %>
           <%- include("../components/card.ejs", {data: video}) %> 
         <% }) %>

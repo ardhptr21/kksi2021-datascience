@@ -7,6 +7,10 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const expressEjsLayouts = require("express-ejs-layouts");
 const path = require("path");
+const flash = require("express-flash");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
 const routes = require("./src/routes");
 
 const app = express();
@@ -21,6 +25,15 @@ app.set("views", path.join(__dirname, "/src/views"));
 app.set("layout", "layouts/base");
 app.set("layout extractScripts", true);
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(
+  session({
+    secret: process.env.SECRET_SESSION,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(cookieParser(process.env.SECRET_SESSION));
+app.use(flash());
 
 // CALL ALL CONFIGS
 require("./src/configs/mongoose.config");

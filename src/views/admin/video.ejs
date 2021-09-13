@@ -9,6 +9,11 @@
   <div class="col-span-12">
     <div class="p-5 w-screen overflow-auto">
       <table class="table m-auto text-gray-400 border-separate space-y-6 text-sm">
+        <% if (messages.success) { %>
+          <%- include("../components/alerts/success.ejs", {message: messages.success}) %>
+        <% } else if(messages.error) { %>
+          <%- include("../components/alerts/error.ejs", {message: messages.error}) %>
+        <% } %> 
         <thead class="bg-gray-800 text-gray-500">
           <tr>
             <th class="p-3 text-left">Title</th>

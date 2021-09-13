@@ -3,12 +3,12 @@ const videoSchema = new mongoose.Schema(
   {
     url: String,
     title: String,
-    desription: String,
+    description: String,
   },
   {
     timestamps: {
-      createdAt: created_at,
-      updatedAt: updated_at,
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     },
   }
 );
