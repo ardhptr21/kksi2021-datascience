@@ -16,7 +16,6 @@ module.exports.isGuest = (req, res, next) => {
 
 module.exports.isSuperadmin = (req, res, next) => {
   if (req.isAuthenticated() && req.user.role === "superadmin") {
-    console.log(req.user);
     return next();
   }
 

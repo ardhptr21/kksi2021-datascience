@@ -5,12 +5,12 @@ module.exports.index = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.render("file/index", { files: result });
+    res.render("file/index", { files: result, title: "File URL" });
   });
 };
 
 module.exports.create = (req, res) => {
-  res.render("file/form");
+  res.render("file/form", { title: "Create File URL" });
 };
 
 module.exports.store = (req, res) => {
@@ -38,7 +38,7 @@ module.exports.edit = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.render("file/form", { data: result });
+    res.render("file/form", { data: result, title: "Edit File URL" });
   });
 };
 

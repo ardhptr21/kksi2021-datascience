@@ -2,10 +2,10 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 module.exports.index = (req, res) => {
-  res.render("auth/login", { navbar: "no" });
+  res.render("auth/login", { navbar: "no", title: "Login" });
 };
 module.exports.register = (req, res) => {
-  res.render("auth/register", { navbar: "no" });
+  res.render("auth/register", { navbar: "no", title: "Register" });
 };
 module.exports.store = (req, res) => {
   const { username, password, superadmin } = req.body;

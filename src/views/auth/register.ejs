@@ -1,17 +1,22 @@
-<div class="w-screen h-screen flex justify-center items-center bg-gray-100">
-  <form method="POST" action="/auth/register" class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md" autocomplete="off">
+<section class="w-screen h-screen flex justify-center p-5 items-center bg-gray-100">
+  <form
+    method="POST"
+    action="/auth/register"
+    class="p-5 max-w-full w-80 bg-white rounded flex justify-center items-center flex-col shadow-md"
+    autocomplete="off"
+  >
     <h1 class="mb-5 text-3xl uppercase text-gray-600">Register</h1>
     <input
       type="username"
       name="username"
-      class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"
+      class="mb-5 p-3 focus:border-purple-700 rounded border-2 outline-none w-full"
       placeholder="Username"
       required
     />
     <input
       type="password"
       name="password"
-      class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"
+      class="mb-5 p-3 focus:border-purple-700 rounded border-2 outline-none w-full"
       placeholder="Password"
       required
     />
@@ -20,6 +25,6 @@
       <input type="checkbox" class="h-5 w-5 text-orange-600" name="superadmin" /><span class="ml-2 text-gray-700">Superadmin</span>
     </label>
 
-    <button class="bg-purple-600 hover:bg-purple-900 text-white font-bold p-2 rounded w-80 uppercase" type="submit">Register</button>
+    <button class="bg-purple-600 hover:bg-purple-900 text-white font-bold p-2 rounded uppercase w-full" type="submit">Register</button>
   </form>
-</div>
+</section>

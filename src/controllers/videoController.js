@@ -6,12 +6,12 @@ module.exports.index = (req, res) => {
       console.log(err);
     }
 
-    res.render("video/index", { videos: result });
+    res.render("video/index", { videos: result, title: "Video URL" });
   });
 };
 
 module.exports.create = (req, res) => {
-  res.render("video/form");
+  res.render("video/form", { title: "Create Video URL" });
 };
 
 module.exports.store = (req, res) => {
@@ -39,7 +39,7 @@ module.exports.edit = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.render("video/form", { data: result });
+    res.render("video/form", { data: result, title: "Edit Video URL" });
   });
 };
 
