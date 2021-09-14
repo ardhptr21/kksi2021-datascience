@@ -4,9 +4,11 @@
     <p class="card-text">
       <%= data.description %>
 
-      <a href="<%= data.url || "#" %>" target="_blank" class="text-blue-500 mt-5 inline-flex items-center font-semibold tracking-wide">
-        <span class="hover:underline"> Lihat </span>
-        <span class="text-xl ml-2">&#8594;</span>
+      <a href="<%= data.url || "#" %>" target="_blank" class="text-blue-500 mt-5 block items-center font-semibold tracking-wide">
+        <span class="group">
+          <span class="hover:underline"> Lihat </span>
+          <span class="text-xl ml-2 inline-block transform duration-300 group-hover:translate-x-3">&#8594;</span>
+        </span>
       </a>
     </p>
 
