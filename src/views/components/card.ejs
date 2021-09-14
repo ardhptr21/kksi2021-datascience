@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card max-w-full">
   <div class="card-content">
-    <h2 class="card-title"><%= data.title %></h2>
+    <h2 class="card-title overflow-x-auto"><%= data.title %></h2>
     <p class="card-text">
       <%= data.description %>
 
@@ -26,3 +26,21 @@
     <% } %>
   </div>
 </div>
+
+<style>
+  .card-title::-webkit-scrollbar {
+    width: 0;
+  }
+  .card-title::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+  }
+  .card-title::-webkit-scrollbar-track {
+  background-color: transparent;
+  }
+  .card-title::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+  }
+</style>
