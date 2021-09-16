@@ -1,0 +1,18 @@
+<section class="mt-10">
+  <div class="max-w-6xl mx-auto px-5 py-24">
+    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+      <h1 class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">
+        LINK URL
+      </h1>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <% if (links.length) { %>
+        <% links.forEach(link => { %>
+          <%- include("../components/card.ejs", {data: link}) %> 
+        <% }) %>
+      <% } else { %>
+        <%- include("../components/alerts/info.ejs", {message: "Sorry, saat ini belum ada tautan ke link apapun"}) %>
+      <% } %> 
+    </div>
+  </div>
+</section>

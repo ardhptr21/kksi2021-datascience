@@ -1,0 +1,90 @@
+<div class="flex items-center flex-col justify-center min-h-screen">
+  <div class="flex flex-wrap w-full mb-5 flex-col items-center text-center">
+    <h1 class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">KELOLA LINK</h1>
+    <div class="mt-10">
+      <a href="/admin" class="shadow bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">BACK</a>
+      <a href="/link/create" class="shadow bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">CREATE NEW</a>
+    </div>
+  </div>
+  <div class="col-span-12">
+    <div class="overflow-auto w-screen">
+      <table class="table m-auto text-gray-400 border-separate space-y-6 text-sm">
+        <% if (messages.success) { %>
+          <%- include("../components/alerts/success.ejs", {message: messages.success}) %>
+        <% } else if(messages.error) { %>
+          <%- include("../components/alerts/error.ejs", {message: messages.error}) %>
+        <% } %> 
+        <% if (links.length) { %>
+        <thead class="bg-gray-800 text-gray-500">
+          <tr>
+            <th class="p-3 text-left">Title</th>
+            <th class="p-3 text-left">Description</th>
+            <th class="p-3 text-left">Url</th>
+            <th class="p-3 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% links.forEach(link => { %>
+          <tr class="bg-gray-800 hover:bg-gray-900">
+            <td class="p-3"><%= link.title %></td>
+            <td class="p-3 max-w-prose">
+              <p class="truncate"><%= link.description %></p>
+            </td>
+            <td class="p-3"><a href="<%= link.url %>" class="text-blue-400 underline"><%= link.url %></a></td>
+            <td class="p-3">
+              <a href="/link/update/<%= link.id %>" class="text-gray-400 hover:text-yellow-300 mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                  />
+                </svg>
+              </a>
+              <form action="/link/delete/<%= link.id %>?_method=DELETE" method="POST" class="inline-block">
+                <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')" class="text-gray-400 hover:text-red-300 ml-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+        <% } else { %>
+          <%- include("../components/alerts/info.ejs", {message: "Tidak ada data untuk saat ini, silahkan buat data link baru"}) %> 
+        <% } %> 
+      </table>
+    </div>
+  </div>
+</div>
+<style>
+  .table {
+    border-spacing: 0 15px;
+  }
+
+  i {
+    font-size: 1rem !important;
+  }
+
+  .table tr {
+    border-radius: 20px;
+  }
+
+  tr td:nth-child(n + 5),
+  tr th:nth-child(n + 5) {
+    border-radius: 0 0.625rem 0.625rem 0;
+  }
+
+  tr td:nth-child(1),
+  tr th:nth-child(1) {
+    border-radius: 0.625rem 0 0 0.625rem;
+  }
+</style>

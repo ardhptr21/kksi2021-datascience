@@ -48,6 +48,7 @@ require("./src/configs/passport.config");
 app.use("/", routes.pages);
 app.use("/video", routes.video);
 app.use("/file", routes.file);
+app.use("/link", routes.link);
 app.use("/admin", routes.admin);
 app.use("/auth", routes.auth);
 
