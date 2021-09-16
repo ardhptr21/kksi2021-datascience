@@ -1,10 +1,10 @@
-<a href="<%= data.url || "#" %>" class="block group card max-w-full">
+<a href="<%= data.url || "#" %>" target="_blank" class="block group card max-w-full">
   <div class="card-content group-hover:shadow-lg">
     <h2 class="card-title uppercase group-hover:text-green-400 duration-300 overflow-x-auto overflow-y-hidden"><%= data.title %></h2>
     <p class="card-text">
       <%= data.description %>
 
-      <p target="_blank" class="group-hover:text-green-400 duration-300 mt-5 block items-center font-semibold tracking-wide">
+      <p class="group-hover:text-green-400 duration-300 mt-5 block items-center font-semibold tracking-wide">
           <span class="group-hover:underline"> Lihat </span>
           <span class="text-xl ml-2 inline-block transform duration-300 group-hover:translate-x-3">&#8594;</span>
       </p>
