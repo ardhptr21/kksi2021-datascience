@@ -104,11 +104,12 @@
     document.getElementById("nav-content").classList.toggle("hidden");
   };
 
-  const theme = localStorage.getItem("theme");
   const container = document.getElementById("container");
   const switchBtn = document.getElementById("switch");
+  let theme;
 
   document.addEventListener("DOMContentLoaded", () => {
+    theme = localStorage.getItem("theme");
     if (theme != "dark") {
       switchBtn.classList.remove("translate-x-7");
     } else {
@@ -117,6 +118,7 @@
   });
 
   container.addEventListener("click", () => {
+    theme = localStorage.getItem("theme");
     if (theme == "dark") {
       localStorage.removeItem("theme");
     } else {
