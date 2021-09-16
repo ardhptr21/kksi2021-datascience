@@ -6,7 +6,7 @@ module.exports.index = (req, res) => {
       console.log(err);
     }
 
-    res.render("video/index", { videos: result, title: "Video URL" });
+    res.render("video/index", { videos: result, title: "Video URL", page_name: "video" });
   });
 };
 

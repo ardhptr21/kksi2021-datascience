@@ -10,7 +10,7 @@
   <body>
     <!-- header -->
     <% if (locals.navbar != "no") { %>
-    <header><%- include("./navbar.ejs") %></header>
+    <header><%- include("./navbar.ejs", {page_name: locals.page_name || ''}) %></header>
     <% } %>
     <!-- main content -->
     <%- body %>

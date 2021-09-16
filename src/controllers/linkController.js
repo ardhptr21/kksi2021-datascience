@@ -5,7 +5,7 @@ module.exports.index = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.render("link/index", { links: result, title: "Link URL" });
+    res.render("link/index", { links: result, title: "Link URL", page_name: "link" });
   });
 };
 

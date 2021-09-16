@@ -5,7 +5,7 @@ module.exports.index = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.render("file/index", { files: result, title: "File URL" });
+    res.render("file/index", { files: result, title: "File URL", page_name: "file" });
   });
 };
 
