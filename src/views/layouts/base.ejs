@@ -18,15 +18,11 @@
     <%- locals.script || "" %>
 
     <script>
-      const theme = localStorage.getItem("theme");
-      const switchBtn = document.getElementById("switch");
-
       document.addEventListener("DOMContentLoaded", () => {
-        switchBtn?.classList.remove("translate-x-7");
-        document.documentElement.classList.remove("dark");
-
-        if (theme == "dark") {
-          switchBtn?.classList.add("translate-x-7");
+        const theme = localStorage.getItem("theme");
+        if (theme != "dark") {
+          document.documentElement.classList.remove("dark");
+        } else {
           document.documentElement.classList.add("dark");
         }
       });

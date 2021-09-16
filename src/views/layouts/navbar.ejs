@@ -6,7 +6,12 @@
 
     <div class="flex justify-center items-center">
       <span class="">
-        <svg class="h-6 w-6 text-yellow-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          class="h-6 w-6 text-yellow-300 dark:text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16,12 +21,20 @@
         </svg>
       </span>
       <!-- Switch Container -->
-      <div class="w-14 h-7 flex items-center rounded-full mx-3 px-1 bg-gray-700 cursor-pointer" id="container">
+      <div
+        class="w-14 h-7 flex items-center rounded-full mx-3 px-1 bg-gray-700 cursor-pointer"
+        id="container"
+      >
         <!-- Switch -->
         <div class="bg-white w-5 h-5 rounded-full shadow-md transform duration-200" id="switch"></div>
       </div>
       <span class="">
-        <svg class="h-6 w-6 text-gray-500 dark:text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          class="h-6 w-6 text-gray-500 dark:text-yellow-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -32,7 +45,10 @@
       </span>
     </div>
     <div class="block lg:hidden pr-4">
-      <button id="nav-toggle" class="flex items-center px-3 py-2 text-black dark:text-white border-gray-600 focus:outline-none">
+      <button
+        id="nav-toggle"
+        class="flex items-center px-3 py-2 text-black dark:text-white border-gray-600 focus:outline-none"
+      >
         <svg fill="text-yellow-300" viewBox="0 0 20 20" class="w-6 h-6 fill-current">
           <path
             fill-rule="evenodd"
@@ -43,7 +59,19 @@
       </button>
     </div>
     <div
-      class="w-full flex-grow p-4 lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white dark:bg-gray-800 md:bg-transparent z-20"
+      class="
+        w-full
+        flex-grow
+        p-4
+        lg:flex lg:items-center lg:w-auto
+        hidden
+        mt-2
+        lg:mt-0
+        bg-white
+        dark:bg-gray-800
+        md:bg-transparent
+        z-20
+      "
       id="nav-content"
     >
       <ul class="list-reset lg:flex justify-center flex-1 items-center">
@@ -60,7 +88,11 @@
           <a class="nav-link <%= page_name == 'link' ? 'active' : '' %>" href="/link">Link lainnya</a>
         </li>
         <li class="mr-3">
-          <a class="bg-green-100 rounded-2xl py-2 px-4 hidden lg:inline-block hover:bg-green-200" href="/admin">Admin</a>
+          <a
+            class="bg-green-100 rounded-2xl py-2 px-4 hidden lg:inline-block hover:bg-green-200"
+            href="/admin"
+            >Admin</a
+          >
         </li>
       </ul>
     </div>
@@ -77,22 +109,18 @@
   const switchBtn = document.getElementById("switch");
 
   document.addEventListener("DOMContentLoaded", () => {
-    switchBtn.classList.remove("translate-x-7");
-    document.documentElement.classList.remove("dark");
-
-    if (theme == "dark") {
+    if (theme != "dark") {
+      switchBtn.classList.remove("translate-x-7");
+    } else {
       switchBtn.classList.add("translate-x-7");
-      document.documentElement.classList.add("dark");
     }
   });
 
   container.addEventListener("click", () => {
-    if (theme == null) {
-      localStorage.setItem("theme", "dark");
-    }
-
     if (theme == "dark") {
       localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", "dark");
     }
     document.documentElement.classList.toggle("dark");
     switchBtn.classList.toggle("translate-x-7");
