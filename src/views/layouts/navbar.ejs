@@ -1,10 +1,38 @@
-<nav id="header" class="fixed bg-white text-black w-full z-20 top-0 shadow-sm">
+<nav id="header" class="fixed bg-white text-black dark:bg-gray-800 w-full z-20 top-0 shadow">
   <div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
     <div class="block lg:hidden pl-8 p-2">
       <a class="bg-green-100 py-2 px-4 rounded-2xl hover:bg-green-200" href="/admin"> Admin </a>
     </div>
+
+    <div class="flex justify-center items-center">
+      <span class="">
+        <svg class="h-6 w-6 text-yellow-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          />
+        </svg>
+      </span>
+      <!-- Switch Container -->
+      <div class="w-14 h-7 flex items-center rounded-full mx-3 px-1 bg-gray-700 cursor-pointer" id="container">
+        <!-- Switch -->
+        <div class="bg-white w-5 h-5 rounded-full shadow-md transform duration-200" id="switch"></div>
+      </div>
+      <span class="">
+        <svg class="h-6 w-6 text-gray-500 dark:text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
+        </svg>
+      </span>
+    </div>
     <div class="block lg:hidden pr-4">
-      <button id="nav-toggle" class="flex items-center px-3 py-2 text-black border-gray-600 focus:outline-none">
+      <button id="nav-toggle" class="flex items-center px-3 py-2 text-black dark:text-white border-gray-600 focus:outline-none">
         <svg fill="text-yellow-300" viewBox="0 0 20 20" class="w-6 h-6 fill-current">
           <path
             fill-rule="evenodd"
@@ -14,7 +42,10 @@
         </svg>
       </button>
     </div>
-    <div class="w-full flex-grow p-4 lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white md:bg-transparent z-20" id="nav-content">
+    <div
+      class="w-full flex-grow p-4 lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white dark:bg-gray-800 md:bg-transparent z-20"
+      id="nav-content"
+    >
       <ul class="list-reset lg:flex justify-center flex-1 items-center">
         <li class="mr-3">
           <a class="nav-link <%= page_name == 'home' ? 'active' : '' %>" href="/">Home</a>
@@ -40,4 +71,30 @@
   document.getElementById("nav-toggle").onclick = function () {
     document.getElementById("nav-content").classList.toggle("hidden");
   };
+
+  const theme = localStorage.getItem("theme");
+  const container = document.getElementById("container");
+  const switchBtn = document.getElementById("switch");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    switchBtn.classList.remove("translate-x-7");
+    document.documentElement.classList.remove("dark");
+
+    if (theme == "dark") {
+      switchBtn.classList.add("translate-x-7");
+      document.documentElement.classList.add("dark");
+    }
+  });
+
+  container.addEventListener("click", () => {
+    if (theme == null) {
+      localStorage.setItem("theme", "dark");
+    }
+
+    if (theme == "dark") {
+      localStorage.removeItem("theme");
+    }
+    document.documentElement.classList.toggle("dark");
+    switchBtn.classList.toggle("translate-x-7");
+  });
 </script>

@@ -7,7 +7,7 @@
     <title><%= locals.title || "KKSI 2021 DATA SCIENCE"%></title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
-  <body>
+  <body class="dark:bg-gray-800 dark:text-white">
     <!-- header -->
     <% if (locals.navbar != "no") { %>
     <header><%- include("./navbar.ejs", {page_name: locals.page_name || ''}) %></header>
@@ -16,5 +16,20 @@
     <%- body %>
     <!-- for javascript -->
     <%- locals.script || "" %>
+
+    <script>
+      const theme = localStorage.getItem("theme");
+      const switchBtn = document.getElementById("switch");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        switchBtn?.classList.remove("translate-x-7");
+        document.documentElement.classList.remove("dark");
+
+        if (theme == "dark") {
+          switchBtn?.classList.add("translate-x-7");
+          document.documentElement.classList.add("dark");
+        }
+      });
+    </script>
   </body>
 </html>
