@@ -17,3 +17,7 @@ module.exports.store = (req, res) => {
     res.redirect("/");
   });
 };
+module.exports.logout = (req, res) => {
+  req.logout();
+  res.redirect("/");
+};

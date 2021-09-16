@@ -12,21 +12,17 @@ passport.use(
       bcrypt.compare(password, user.password, (err, result) => {
         if (err) return done(err);
         if (!result) return done(null, false, { message: "Password incorrect" });
-
         return done(null, user);
       });
     });
   })
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+passport.serializeUser((user, done) => done(null, user.id));
 
 passport.deserializeUser((id, done) => {
-  User.findOne({ id }, (err, user) => {
+  User.findById(id, (err, user) => {
     if (err) return done(err);
-
     return done(null, user);
   });
 });
