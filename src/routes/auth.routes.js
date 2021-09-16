@@ -16,6 +16,6 @@ router
     })
   );
 router.route("/register").get(authMiddleware.isSuperadmin, authController.register).post(authMiddleware.isSuperadmin, authController.store);
-router.get("/logout");
+router.get("/logout", authController.logout);
 
 module.exports = router;
