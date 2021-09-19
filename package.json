@@ -6,7 +6,7 @@
   "author": "ardhptr21 <ardhiputrapradana21@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "v14.17.3"
+    "node": "v14.x"
   },
   "repository": {
     "type": "git",

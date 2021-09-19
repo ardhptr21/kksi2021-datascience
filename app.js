@@ -45,12 +45,13 @@ require("./src/configs/mongoose.config");
 require("./src/configs/passport.config");
 
 // ROUTES
-app.use("/", routes.pages);
 app.use("/video", routes.video);
 app.use("/file", routes.file);
 app.use("/link", routes.link);
 app.use("/admin", routes.admin);
 app.use("/auth", routes.auth);
+app.use("/", routes.pages);
+app.get("*", (req, res) => res.render("error/404", { navbar: "no" }));
 
 // LISTENING PORT
 app.listen(PORT, () => console.log(`Server run on port ${PORT}`));

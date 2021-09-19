@@ -8,7 +8,7 @@ module.exports.isAuth = (req, res, next) => {
 
 module.exports.isGuest = (req, res, next) => {
   if (req.isAuthenticated()) {
-    return res.redirect("/");
+    return res.render("error/404", { navbar: "no" });
   }
 
   next();
@@ -19,5 +19,5 @@ module.exports.isSuperadmin = (req, res, next) => {
     return next();
   }
 
-  return res.redirect("/");
+  res.render("error/404", { navbar: "no" });
 };
