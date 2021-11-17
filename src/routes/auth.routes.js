@@ -10,12 +10,15 @@ router
   .post(
     authMiddleware.isGuest,
     passport.authenticate("local", {
-      successRedirect: "/",
+      successRedirect: "/admin",
       failureRedirect: "/auth/login",
       failureFlash: true,
     })
   );
-router.route("/register").get(authMiddleware.isSuperadmin, authController.register).post(authMiddleware.isSuperadmin, authController.store);
+router
+  .route("/register")
+  .get(authMiddleware.isSuperadmin, authController.register)
+  .post(authMiddleware.isSuperadmin, authController.store);
 router.get("/logout", authController.logout);
 
 module.exports = router;
